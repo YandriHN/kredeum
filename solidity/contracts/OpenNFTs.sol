@@ -7,6 +7,8 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "./IOpenNFTs.sol";
 
+import "hardhat/console.sol";
+
 contract OpenNFTs is ERC721, ERC721Enumerable, ERC721URIStorage, IOpenNFTs {
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
@@ -46,6 +48,10 @@ contract OpenNFTs is ERC721, ERC721Enumerable, ERC721URIStorage, IOpenNFTs {
     returns (string memory)
   {
     return super.tokenURI(tokenId);
+  }
+
+  function id() public pure returns (bytes4) {
+    return type(IOpenNFTs).interfaceId;
   }
 
   function supportsInterface(bytes4 interfaceId)

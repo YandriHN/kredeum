@@ -27,6 +27,11 @@ describe("NFTs Listing", async function () {
       expect(Boolean(openNFTs)).to.be.true;
     });
 
+    it.only("Should set Contract without address", async function () {
+      console.log("id", await openNFTs.id());
+      expect(true).to.be.true;
+    });
+
     it("Should set Contract without address", async function () {
       expect(openNFTs.setContract(chainId1)).to.eql([network1, contract1default]);
     });

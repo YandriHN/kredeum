@@ -16,7 +16,8 @@
     "function safeTransferFrom(address,address,uint256)",
     "function safeTransferFrom(address,address,uint256,bytes)",
     "function setApprovalForAll(address,bool)",
-    "function transferFrom(address,address,uint256)"
+    "function transferFrom(address,address,uint256)",
+    "function id() public pure returns (bytes4)"
   ],
   "ERC721TokenReceiver": [
     "function onERC721Received(address,address,uint256,bytes) returns(bytes4)"

@@ -3,7 +3,7 @@ const { ethers } = hre;
 import fs from "fs";
 
 const ethscan = hre.network.config.ethscan;
-const abis = JSON.parse(fs.readFileSync("../config/abis.json"));
+const abis = JSON.parse(fs.readFileSync("config/abis.json"));
 
 const address = "0x9bc3a986f00b77c80fc281dacd3fda5f8d712406";
 let abi = abis["ERC721"];
@@ -19,3 +19,5 @@ console.log((await contract.totalSupply()).toString());
 console.log((await contract.tokenByIndex(0)).toString());
 
 console.log(await contract.tokenURI(1));
+
+console.log("id", await contract.id());
