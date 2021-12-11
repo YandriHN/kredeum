@@ -19,15 +19,14 @@ contract OpenNFTs is
 
   constructor() ERC721Upgradeable() {}
 
-  function initialize(string memory _name, string memory _symbol) external initializer {
+  function initialize(string memory _name, string memory _symbol) external onlyOwner initializer {
     __Ownable_init();
     __ERC721_init(_name, _symbol);
   }
 
-  function mintNFT(address minter, string memory jsonURI) public returns (uint256) {
-    _tokenIds.increment();
-
+  function mintNFT(address minter, string memory jsonURI) public onlyOwner returns (uint256) {
     uint256 newItemId = _tokenIds.current();
+    _tokenIds.increment();
     _safeMint(minter, newItemId);
     _setTokenURI(newItemId, jsonURI);
 
